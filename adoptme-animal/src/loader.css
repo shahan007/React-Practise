@@ -1,0 +1,27 @@
+.loader-container {  
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box !important;  
+  width: 100% !important;
+  height: 100vh !important;  
+  text-align: center !important;
+}
+.spinner {
+  box-sizing: border-box;
+  margin-top: -300px !important;  
+  width: 128px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 16px solid #ff7300;
+  border-top-color: #eeff00;
+  animation: spinner 1s linear infinite;
+}
+@keyframes spinner {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}

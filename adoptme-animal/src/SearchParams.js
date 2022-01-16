@@ -25,12 +25,10 @@ const SeachParams = () => {
       }
       const json = await response.json();
       setPets(json.pets);
-      console.log(json.pets);
     } catch (error) {
       console.error(error);
     }
   };
-
   return (
     <div className="search-params">
       <form
@@ -39,7 +37,6 @@ const SeachParams = () => {
         onSubmit={(e) => {
           e.preventDefault();
           requestPets();
-          console.log(pets);
         }}
       >
         <label htmlFor="location">Location</label>
