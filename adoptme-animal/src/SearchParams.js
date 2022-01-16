@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import Result from "./ResultPets";
 import useBreedList from "./useBreedList";
+import Loader from "./loader";
 
 const ANIMALS = ["bird", "dog", "cat", "rabit", "reptile"];
 
 const SeachParams = () => {
+  const [loading, setLoading] = useState(true);
   const [location, setLocation] = useState("Seattle .WA");
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
@@ -25,16 +27,21 @@ const SeachParams = () => {
       }
       const json = await response.json();
       setPets(json.pets);
+      setLoading(false);
     } catch (error) {
       console.error(error);
     }
   };
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <div className="search-params">
       <form
         method="GET"
         action=""
         onSubmit={(e) => {
+          setLoading(true);
           e.preventDefault();
           requestPets();
         }}

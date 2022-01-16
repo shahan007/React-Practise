@@ -15,7 +15,6 @@ class Details extends Component {
     );
     const json = await res.json();
     this.setState({ ...{ loading: false }, ...json.pets[0] });
-    for (let index = 0; index < 1000000000; index++) {}
   }
 
   render() {
