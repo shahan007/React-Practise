@@ -2,6 +2,7 @@ import { Fragment, Component } from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import Loader from "./loader";
+import Carousel from "./Carousel";
 
 class Details extends Component {
   state = { loading: true };
@@ -11,7 +12,7 @@ class Details extends Component {
       `http://pets-v2.dev-apis.com/pets?id=${this.props.match.params.id}`
     );
     const json = await res.json();
-    this.setState({ ...{ loading: false }, ...json.pets[0] });
+    await this.setState({ ...{ loading: false }, ...json.pets[0] });
   }
 
   render() {
@@ -20,7 +21,8 @@ class Details extends Component {
       return <Loader />;
     }
 
-    const { animal, breed, city, state, description, name } = this.state;
+    const { animal, breed, city, state, description, name, images } =
+      this.state;
     if (!name || !animal) {
       return (
         <Fragment>
@@ -32,6 +34,7 @@ class Details extends Component {
     return (
       <Fragment>
         <div className="details">
+          <Carousel images={images} />
           <div>
             <h1>{name}</h1>
             <h2>{`${animal} — ${breed} — ${city}, ${state}`}</h2>
