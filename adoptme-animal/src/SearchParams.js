@@ -6,18 +6,20 @@ import Loader from "./loader";
 const ANIMALS = ["bird", "dog", "cat", "rabit", "reptile"];
 
 const SeachParams = () => {
+  console.log("printing outside");
   const [loading, setLoading] = useState(true);
   const [location, setLocation] = useState("Seattle .WA");
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
   const [breedList] = useBreedList(animal);
-
+  console.log(animal, location);
   useEffect(() => {
     requestPets();
   }, []);
 
   const requestPets = async () => {
+    console.log("printing inside");
     try {
       const response = await fetch(
         `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
