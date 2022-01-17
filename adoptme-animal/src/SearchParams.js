@@ -13,13 +13,12 @@ const SeachParams = () => {
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
   const [breedList] = useBreedList(animal);
-  console.log(animal, location);
+  
   useEffect(() => {
     requestPets();
   }, []);
 
-  const requestPets = async () => {
-    console.log("printing inside");
+  const requestPets = async () => {    
     try {
       const response = await fetch(
         `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
