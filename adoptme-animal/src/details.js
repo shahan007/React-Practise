@@ -2,6 +2,7 @@ import { Fragment, Component } from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import Loader from "./loader";
+import ErrorBoundary from "./ErrorBoundary";
 import Carousel from "./Carousel";
 
 class Details extends Component {
@@ -12,26 +13,18 @@ class Details extends Component {
       `http://pets-v2.dev-apis.com/pets?id=${this.props.match.params.id}`
     );
     const json = await res.json();
-    await this.setState({ ...{ loading: false }, ...json.pets[0] });
+    this.setState({ ...{ loading: false }, ...json.pets[0] });
   }
-
-  render() {
+  
+  render() {    
     const loading = this.state.loading;
     if (loading) {
       return <Loader />;
     }
 
-    const { animal, breed, city, state, description, name, images } =
-      this.state;
-    if (!name || !animal) {
+    const { animal, breed, city, state, description, name, images } = this.state;
+
       return (
-        <Fragment>
-          <h2>Ooops !</h2>
-          <Link to="/">Go Back</Link>
-        </Fragment>
-      );
-    }
-    return (
       <Fragment>
         <div className="details">
           <Carousel images={images} />
@@ -48,4 +41,11 @@ class Details extends Component {
   }
 }
 
-export default withRouter(Details);
+const DetailsWithRouter = withRouter(Details);
+export default function DetailsWithErrorBoundary(){
+  return (
+    <ErrorBoundary>
+      <DetailsWithRouter/>
+    </ErrorBoundary>
+  )
+}
