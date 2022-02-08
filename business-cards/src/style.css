@@ -1,0 +1,203 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    padding:0;
+    background: #1C1C1C;
+    color: #FFFFFF;    
+    line-height: 16px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.cards, .card-contact-btns, .card-footer{
+    padding: 2.5% ;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;    
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.card-carrier{     
+    margin:2%;
+    width:45%;
+    background-color:#23252C ;        
+}
+
+.card{
+    width: 70%;
+    margin: 20px auto;            
+    border-radius: 10px 10px 10px 10px;
+    background: #1A1B21;
+    transition: all 350ms ease-in-out;
+}
+
+.card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0px 4px 10px 3px rgba(97,219,251,0.3);       
+}
+
+.card-user, .card-contact-btns{
+    text-align: center;            
+}
+
+
+.userpic{    
+    width: 100%;    
+    border-radius: 10px 10px 0px 0px;    
+    min-height: 250px;
+    max-height: 250px;    
+}
+
+
+.card-main{
+    padding:10px; 
+    padding-left: 15px;
+}
+
+.card-footer{
+
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 0px 0px 10px 10px;
+    background-color:#161619;
+    padding: 16px ; 
+}
+
+.card-sub-body{
+    color:#DCDCDC;
+    font-size:12px;
+    line-height: 150%;
+    width: 85% ;
+}
+
+.card-sub-title{
+    color: #F5F5F5;
+    font-size: 18px;
+    line-height: 150%;    
+}
+
+.contact-btn{
+    text-decoration: none;
+    margin:auto 3%;                
+    width: 40%;   
+    padding: 3%;
+    text-align: center;
+    background-color: transparent;   
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    flex-wrap: wrap;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;    
+    font-size: 14px;
+}
+
+.contact-btn > img{
+    margin-right: 5px;
+}
+
+.contact-btn-Email{
+    background: white;
+    color: #374151;
+}
+
+.contact-btn-Linkedin{
+    background: #5093E2;
+    color: #FFFFFF;
+}
+
+.header{
+    text-align: center;
+    display: flex;
+    padding:4.5%;    
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.header > img.WebLogo{
+    margin-top: 12px;
+}
+.WebLogo{
+    width: 100px;
+}
+
+.search-bar-wrapper{ 
+    width: 80%;    
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.search-bar{    
+    position: relative;
+    padding: 15px 40px 15px 20px;
+    width: 20px;
+    color: #525252;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 100;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(to right, #FFFFFF 0%,#464747 #F9F9F9 100%);
+    transition: width 0.4s ease;
+    outline: none;        
+    
+}
+
+.search-bar:focus{  
+    width: 55%;
+    box-shadow: 0px 1px 10px 1px  rgba(97,219,251,0.8);
+}
+
+.search-query-result{
+    padding: 25px;
+    text-align: center
+}
+
+i.fa.fa-search{
+  position: relative;
+  left: -37px;
+  color: #61DBFB;  
+}
+
+.query-empty{
+    text-align: center;
+    animation: flicker 1.5s infinite alternate;     
+    color: #fff;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #61DBFB,
+        0 0 82px #61DBFB,
+        0 0 92px #61DBFB,
+        0 0 102px #61DBFB,
+        0 0 151px #61DBFB;
+    
+}
+
+/* Flickering animation */
+@keyframes flicker {
+    
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+      text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px #61DBFB,
+      0 0 80px #61DBFB,
+      0 0 90px #61DBFB,
+      0 0 100px #61DBFB,
+      0 0 150px #61DBFB;
+  
+  }
+  
+  20%, 24%, 55% {        
+      text-shadow: none;
+  }    
+}
