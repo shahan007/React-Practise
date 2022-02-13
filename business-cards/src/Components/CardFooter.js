@@ -1,5 +1,3 @@
-import React from "react"
-
 const SocialIconSource = {
     "Twitter" : "Images/TwitterIcon.png",
     "Facebook" : "Images/FacebookIcon.png",

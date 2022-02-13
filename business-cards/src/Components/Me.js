@@ -1,5 +1,3 @@
-import React from "react"
-
 const defaultImage = "./Images/defaultImage.jpg"
 
 const Me = ({name,position,website,weblink,image})=>(

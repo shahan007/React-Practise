@@ -1,4 +1,3 @@
-import React from "react"
 import Me from "./Me"
 import CardMainContent from "./CardMainContent"
 import Button  from "./Button"

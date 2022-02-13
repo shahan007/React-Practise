@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import {useState} from "react"
 import Data from "../Data/data"
 import CardCarrier from "./CardCarrier"
 import Search from "./Search"

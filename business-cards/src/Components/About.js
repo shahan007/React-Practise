@@ -1,5 +1,3 @@
-import React from "react"
-
 const About = ({body}) => (
     <div className="about">
         <h3 className="card-sub-title">About</h3>
