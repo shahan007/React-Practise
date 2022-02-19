@@ -5,8 +5,7 @@ import Loader from "./loader";
 
 const ANIMALS = ["bird", "dog", "cat", "rabit", "reptile"];
 
-const SeachParams = () => {
-  console.log("printing outside");
+const SeachParams = () => {  
   const [loading, setLoading] = useState(true);
   const [location, setLocation] = useState("Seattle .WA");
   const [animal, setAnimal] = useState("");

@@ -5,8 +5,7 @@ const Pagination = ({ currentPage, totalPages, setCurrentPage}) => {
     }
             
 
-    const nextPage = ()=> {
-        console.log(currentPage)
+    const nextPage = ()=> {        
         setCurrentPage(currentPage + 1)        
     }            
 
@@ -17,7 +16,7 @@ const Pagination = ({ currentPage, totalPages, setCurrentPage}) => {
             onClick={prevPage} disabled={currentPage === 0 ? true : false} 
             title="previous page"
             >
-                <i class="fa-solid fa-backward-step"></i>
+                <i className="fa-solid fa-backward-step"></i>
             </button>
             <span className="pagination-status">
                 <span className="pagination-currentpage">{currentPage + 1}</span> 
@@ -29,7 +28,7 @@ const Pagination = ({ currentPage, totalPages, setCurrentPage}) => {
             onClick={nextPage} disabled={currentPage + 1 === totalPages ? true : false} 
             title="next page"
             >
-                <i class="fa-solid fa-forward-step"></i>
+                <i className="fa-solid fa-forward-step"></i>
             </button>
         </div>
     )

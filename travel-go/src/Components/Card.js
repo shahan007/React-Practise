@@ -1,3 +1,5 @@
+import Voting from "./Voting";
+
 const Card = (props)=>{
     
     const travel = props.travel
@@ -16,6 +18,10 @@ const Card = (props)=>{
                 <p className="travel-card-timeline">{travel.startDate}-{travel.endDate}</p>
                 <p className="travel-card-description">{travel.description}</p>
             </div>
+            <Voting             
+            travel={travel}                        
+            setVoted={props.setVoted}
+            />
         </div>    
         
     )
