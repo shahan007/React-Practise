@@ -150,6 +150,18 @@ i.fa-location-dot{
 
 /*  */
 
+/*  */
+.btn{
+    outline: none;
+    border: none;
+    border-radius: 4px;    
+    padding: 6px 18px;
+    background-color:#FBF8F1;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+}
+/*  */
+
 /* pagination */
 .pagination{
     text-align: center;
@@ -171,16 +183,6 @@ i.fa-location-dot{
     color: #F55A5A ;
 }
 
-.pagination button{
-    outline: none;
-    border: none;
-    border-radius: 4px;    
-    padding: 6px 18px;
-    background-color:#FBF8F1;
-    cursor: pointer;
-    transition: all 200ms ease-in-out;
-}
-
 .pagination button:not(:disabled):hover{
     background-color: #F55A5A;
 }
@@ -198,5 +200,33 @@ i.fa-location-dot{
 }
 .pagination button:disabled *{
     opacity: 40%;
+}
+/*  */
+
+/* votes */
+.votes{
+    text-align: center;
+    align-self: center;
+}
+
+.downvote-red *{
+    color:red;
+}
+
+.upvote-green *{
+    color:greenyellow;
+}
+
+.downvote-red:hover{
+    background-color: red;
+}
+
+.upvote-green:hover{
+    background-color: greenyellow;
+}
+
+
+.upvote-green:hover *, .downvote-red:hover *{
+    color:#FBF8F1;    
 }
 /*  */

@@ -12,7 +12,7 @@ const Pagination = ({ currentPage, totalPages, setCurrentPage}) => {
     return (
         <div  className="pagination">
             <button 
-            className="next-page" 
+            className="next-page btn" 
             onClick={prevPage} disabled={currentPage === 0 ? true : false} 
             title="previous page"
             >
@@ -24,7 +24,7 @@ const Pagination = ({ currentPage, totalPages, setCurrentPage}) => {
                 <span className="pagination-totalpage">{totalPages}</span>
             </span>
             <button 
-            className="previous-page" 
+            className="previous-page btn" 
             onClick={nextPage} disabled={currentPage + 1 === totalPages ? true : false} 
             title="next page"
             >
