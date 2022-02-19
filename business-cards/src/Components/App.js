@@ -2,7 +2,7 @@ import {useState} from "react"
 import Data from "../Data/data"
 import CardCarrier from "./CardCarrier"
 import Search from "./Search"
-import "../style.css"
+import "../Styles/style.css"
 
 const App = ()=>{
     
