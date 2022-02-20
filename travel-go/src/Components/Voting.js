@@ -40,13 +40,13 @@ const Voting = ({ travel, setVoted})=>{
     return (
         <div className="votes">
             <button className="btn upvote-green" onClick={incrementUpvote}>
-                <i class="fa-solid fa-thumbs-up"></i>
+                <i className="fa-solid fa-thumbs-up"></i>
             </button>
             <p>
                 {travel.upvote - travel.downvote}
             </p>
             <button className="btn downvote-red" onClick={incrementDownvote}>
-                <i class="fa-solid fa-thumbs-down"></i>
+                <i className="fa-solid fa-thumbs-down"></i>
             </button>
         </div>
     )

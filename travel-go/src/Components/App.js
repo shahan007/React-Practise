@@ -3,6 +3,7 @@ import Nav from "./Nav"
 import Footer from "./Footer"
 import Card from "./Card"
 import Pagination from "./Pagination"
+import Loader from "./Loader"
 import "../Styles/style.css"
 
 const countPerPage = 3;
@@ -10,6 +11,7 @@ const countPerPage = 3;
 const App = () => {
     
     const [AllData,setAllData] = useState([])
+    const [loading,setLoading] = useState(true)
     let [voted,setVoted] = useState(true);
     const [currentPage, setCurrentPage] = useState(0);    
     const totalPages = Math.ceil(AllData.length / countPerPage);
@@ -20,6 +22,7 @@ const App = () => {
 
     const requestTravels = async ()=>{
         try {            
+            setLoading(true)
             const response = await fetch(
                 "http://localhost:8000/data"
                 , {
@@ -32,8 +35,9 @@ const App = () => {
             if (!response.ok){
                 throw new Error("Oop!")
             }            
-            const json = await response.json();                        
-            setAllData(json)
+            const json = await response.json();   
+            setAllData(json)                  
+            setLoading(false)      
         } catch (error) {
             console.error(error)
         }
@@ -41,14 +45,19 @@ const App = () => {
 
     useEffect(
         () => {
-            if(voted){                
+            if(voted){                                      
                 requestTravels()                                
                 setVoted(false)
             }                                    
         }
     )
-
-    return (
+     
+    if (loading){
+        return (
+            <Loader/>
+        )
+    }    
+    return (        
         <div>
             <Nav />
             <main className="travels-container">
