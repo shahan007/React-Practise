@@ -210,19 +210,19 @@ i.fa-location-dot{
 }
 
 .downvote-red *{
-    color:red;
+    color:#FF0000;
 }
 
 .upvote-green *{
-    color:greenyellow;
+    color:#33FF33;
 }
 
 .downvote-red:hover{
-    background-color: red;
+    background-color: #FF0000;
 }
 
 .upvote-green:hover{
-    background-color: greenyellow;
+    background-color: #33FF33;
 }
 
 
