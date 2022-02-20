@@ -36,8 +36,8 @@ const App = () => {
                 throw new Error("Oop!")
             }            
             const json = await response.json();   
-            setAllData(json)                  
-            setLoading(false)      
+            setAllData(json)                           
+            setLoading(false)
         } catch (error) {
             console.error(error)
         }
@@ -52,26 +52,27 @@ const App = () => {
         }
     )
      
-    if (loading){
-        return (
-            <Loader/>
-        )
-    }    
     return (        
         <div>
             <Nav />
-            <main className="travels-container">
-                {
-                    pagedData.map(
-                        travel => <Card key={travel.id} travel={travel} setVoted={setVoted}/>
-                    )
-                }
-            </main>
-            <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            setCurrentPage={setCurrentPage}
-            />
+            {
+                loading ? 
+                <Loader/> :
+            <>
+                <main className="travels-container">
+                    {
+                        pagedData.map(
+                            travel => <Card key={travel.id} travel={travel} setVoted={setVoted}/>
+                        )
+                    }
+                </main>
+                <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                setCurrentPage={setCurrentPage}
+                />
+            </>
+            }
             <Footer />
         </div>
     )
