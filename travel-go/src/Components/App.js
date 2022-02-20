@@ -22,7 +22,9 @@ const App = () => {
 
     const requestTravels = async ()=>{
         try {            
-            setLoading(true)
+            // uncomment below to activate loader componenet each time its voted
+            // i disabled it just to showcase loader component once
+            // setLoading(true)
             const response = await fetch(
                 "http://localhost:8000/data"
                 , {
@@ -36,8 +38,14 @@ const App = () => {
                 throw new Error("Oop!")
             }            
             const json = await response.json();   
-            setAllData(json)                           
-            setLoading(false)
+            setAllData(json)
+            // since i am only checking for loading once
+            // i have the below code else to check for loading when voted disable
+            // below and enable line 48
+            if (loading){
+                setLoading(false)
+            }                        
+            // setLoading(false) -- line 48
         } catch (error) {
             console.error(error)
         }
