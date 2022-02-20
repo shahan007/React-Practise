@@ -9,8 +9,8 @@
       "endDate": "24 Jan, 2021",
       "description": "Mount Norway is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet). Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists.",
       "imageUrl": "./Images/Indonesia.jpg",
-      "upvote": 76,
-      "downvote": 63
+      "upvote": 77,
+      "downvote": 64
     },
     {
       "id": 1,
@@ -33,7 +33,7 @@
       "endDate": "24 Jan, 2021",
       "description": "Mount Norway is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet). Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists.",
       "imageUrl": "./Images/Yemen.jpg",
-      "upvote": 12,
+      "upvote": 13,
       "downvote": 8
     },
     {
@@ -45,7 +45,7 @@
       "endDate": "24 Jan, 2021",
       "description": "Mount Norway is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet). Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists.",
       "imageUrl": "./Images/Thailand.jpg",
-      "upvote": 2,
+      "upvote": 5,
       "downvote": 5
     },
     {

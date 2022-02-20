@@ -48,6 +48,9 @@ const Voting = ({ travel, setVoted})=>{
             <button className="btn downvote-red" onClick={incrementDownvote}>
                 <i className="fa-solid fa-thumbs-down"></i>
             </button>
+            <p className="number-votes">
+                <span>{travel.upvote + travel.downvote}</span> votes
+            </p>
         </div>
     )
 }
