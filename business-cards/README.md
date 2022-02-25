@@ -19,6 +19,11 @@ Install dependencies. Make sure you already have [`nodejs`](https://nodejs.org/e
 $ npm install
 ```
 
+Run the server
+```bash
+$ npx json-server --watch Data/data.json --port 8000
+```
+
 Run the client
 ```bash
 $ npm start 
