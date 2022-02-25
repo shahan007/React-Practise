@@ -214,6 +214,7 @@ i.fa.fa-search{
 .loading div {
     position: absolute;
     background: #fff;
+    box-shadow: 0px 1px 10px 1px  rgba(97,219,251,0.8);
     opacity: 1;
     border-radius: 50%;
     animation: loading 1.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
