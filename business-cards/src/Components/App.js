@@ -1,12 +1,51 @@
-import {useState} from "react"
-import Data from "../Data/data"
+import {useState,useEffect} from "react"
 import CardCarrier from "./CardCarrier"
 import Search from "./Search"
+import Loader from "./Loader"
 import "../Styles/style.css"
 
 const App = ()=>{
     
-    const [filteredData, setFilteredData] = useState(Data);
+    const [Data,setData] = useState([])
+    const [filteredData, setFilteredData] = useState(Data)
+    const [loading,setLoading] = useState(true)
+
+    //  fetching all the business cards data
+    const requestBusinessData = async ()=>{
+        try {                     
+            setLoading(true)
+            const url = "http://localhost:8000/data"
+            const res = await fetch(
+                url,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    }
+                }                
+            )
+            if (!res.ok){
+                throw new Error(`<Error> Ooops\n\t${res.status}\n\t${res.statusText}`)
+            }
+            const json = await res.json()         
+            setData(json)            
+            setFilteredData(json)
+            setLoading(false)
+        } catch (error) {            
+            console.error(error.message)
+        }
+    }
+
+    useEffect(
+        ()=>{                                    
+            requestBusinessData()                                    
+        },
+        []
+    )
+    
+    if (loading){
+        return <Loader/>
+    }
     
     return (
         <div>            
