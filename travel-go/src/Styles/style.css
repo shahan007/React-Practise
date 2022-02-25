@@ -36,8 +36,10 @@ body{
 footer{
     padding:10px;
     text-align: center;
-    background: #F55A5A;     
-    margin-top:20px;   
+    background: #F55A5A;      
+    position: fixed;
+    bottom: 0;
+    width: 100%;            
 }
 
 
@@ -165,7 +167,8 @@ i.fa-location-dot{
 /* pagination */
 .pagination{
     text-align: center;
-    padding: 40px;
+    padding: 40px ; 
+    margin-bottom: 40px;       
 }
 
 .pagination-status{

@@ -6,7 +6,7 @@ import Pagination from "./Pagination"
 import Loader from "./Loader"
 import "../Styles/style.css"
 
-const countPerPage = 3;
+const countPerPage = 2;
 
 const App = () => {
     

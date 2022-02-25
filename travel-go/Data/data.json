@@ -7,34 +7,34 @@
       "googleMapsUrl": "https://goo.gl/maps/iBD2t1yhqHsQ3c9B9",
       "startDate": "12 Jan, 2021",
       "endDate": "24 Jan, 2021",
-      "description": "Mount Norway is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet). Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists.",
+      "description": "Bali received the Best Island award from Travel and Leisure in 2010.[73] Bali won because of its attractive surroundings (both mountain and coastal areas), diverse tourist attractions, excellent international and local restaurants, and the friendliness of the local people.",
       "imageUrl": "./Images/Indonesia.jpg",
-      "upvote": 77,
-      "downvote": 64
+      "upvote": 23,
+      "downvote": 4
     },
     {
       "id": 1,
-      "title": "Pyramids",
+      "title": "Great Pyramid of Giza",
       "location": "Egypt",
       "googleMapsUrl": "https://goo.gl/maps/CU5dsaMifhPxKo5aA",
       "startDate": "12 Jan, 2021",
       "endDate": "24 Jan, 2021",
-      "description": "Mount Norway is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet). Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists.",
+      "description": "The Great Pyramid of Giza (also known as the Pyramid of Khufu or the Pyramid of Cheops) is the oldest and largest of the pyramids in the Giza pyramid complex bordering present-day Giza in Greater Cairo, Egypt. It is the oldest of the Seven Wonders of the Ancient World, and the only one to remain largely intact.",
       "imageUrl": "./Images/Egypt.jpg",
-      "upvote": 8,
-      "downvote": 7
+      "upvote": 30,
+      "downvote": 0
     },
     {
       "id": 2,
-      "title": "Yemen",
+      "title": "Al Saleh Mosque",
       "location": "Yemen",
       "googleMapsUrl": "https://goo.gl/maps/zMZy5m1ZTrZwRjYU8",
       "startDate": "12 Jan, 2021",
       "endDate": "24 Jan, 2021",
-      "description": "Mount Norway is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet). Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists.",
+      "description": "Al-Saleh Mosque (Arabic: جَامِع ٱلصَّالِح, romanized: Jāmiʿ Aṣ-Ṣāliḥ) is a modern mosque in Sana’a that is the largest in Yemen. It lies in the southern outskirts of the city, south of the Al Sabeen Maternal Hospital. Originally named \"Al Saleh Mosque\", it was inaugurated in November 2008 by the late Yemeni President Ali Abdullah Saleh.",
       "imageUrl": "./Images/Yemen.jpg",
-      "upvote": 13,
-      "downvote": 8
+      "upvote": 10,
+      "downvote": 0
     },
     {
       "id": 3,
@@ -43,10 +43,10 @@
       "googleMapsUrl": "https://goo.gl/maps/AJGDEyc6C9JQXvzB9",
       "startDate": "12 Jan, 2021",
       "endDate": "24 Jan, 2021",
-      "description": "Mount Norway is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet). Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists.",
+      "description": "Pattaya (Thai: พัทยา, RTGS: Phatthaya, pronounced [pʰát.tʰā.jāː] (audio speaker iconlisten)) is a city in Thailand. It is on the east coast of the Gulf of Thailand, about 100 kilometres (62 mi) southeast of Bangkok, within, but not part of, Bang Lamung District in the province of Chonburi.",
       "imageUrl": "./Images/Thailand.jpg",
-      "upvote": 5,
-      "downvote": 5
+      "upvote": 3,
+      "downvote": 0
     },
     {
       "id": 4,
@@ -55,10 +55,10 @@
       "googleMapsUrl": "https://goo.gl/maps/T3fDKSGXWjqwFtSY8",
       "startDate": "12 Jan, 2021",
       "endDate": "24 Jan, 2021",
-      "description": "Mount Norway is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet). Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists.",
+      "description": "Sri Lanka (UK: /sri ˈlæŋkə, ʃriː -/, US: /- ˈlɑːŋkə/ (audio speaker iconlisten); Sinhala: ශ්‍රී ලංකාව, romanized: Śrī Laṅkā (IPA: [ʃriː laŋkaː]); Tamil: இலங்கை, romanized: Ilaṅkai (IPA: [ilaŋɡaj])), formerly known as Ceylon, and officially the Democratic Socialist Republic of Sri Lanka, is an island country in South Asia.",
       "imageUrl": "./Images/Srilanka.jpg",
-      "upvote": 9,
-      "downvote": 7
+      "upvote": 0,
+      "downvote": 0
     }
   ]
 }
