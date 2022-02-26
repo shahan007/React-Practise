@@ -28,7 +28,7 @@ const Search = ({ data, setFilteredData })=>{
             <div className="header">                
                 <img className="WebLogo" src={WebLogo} alt="donkeyLogo"/>
                 <div className="search-bar-wrapper">                       
-                    <input className="search-bar" onChange={updateQueryAndResult} type="text"/>
+                    <input className="search-bar" onChange={updateQueryAndResult} type="text" value={queryUsername}/>
                     <i className="fa fa-search"></i>
                 </div>
             </div>
