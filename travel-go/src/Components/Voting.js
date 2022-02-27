@@ -1,40 +1,70 @@
 const Voting = ({ travel, setVoted})=>{
 
-    const incrementUpvote = async () => {        
-        travel.upvote = travel.upvote  + 1   
-        const response = await fetch(
-            `http://localhost:8000/data/${travel.id}`,
-            {
-                method: "PUT",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(travel)
+    const incrementUpvote = async () => {           
+
+        try {
+            const response = await fetch(
+                `http://localhost:8000/data/${travel.id}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(
+                        {
+                            ...travel,
+                            upvote: travel.upvote + 1
+                        }
+                    )
+                }
+            )
+
+            if (!response.ok) {
+                throw new Error("Oops!")
             }
-        )
-        if (!response.ok){
-            console.log(response.status)
-        }        
-        setVoted(true)        
-    }
-    const incrementDownvote = async () => {
-        travel.downvote = travel.downvote + 1
-        const response = await fetch(
-            `http://localhost:8000/data/${travel.id}`,
-            {
-                method: "PUT",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(travel)
-            }
-        )
-        if (!response.ok) {
-            console.log(response.status)
+
+            setVoted(
+                prevVoted => !prevVoted
+            )        
+            
+        } catch (error) {
+            console.error(error.message)
         }
-        setVoted(true)                     
+    }
+
+    const incrementDownvote = async () => {  
+
+        try {
+            const response = await fetch(
+                `http://localhost:8000/data/${travel.id}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(
+                        {
+                            ...travel,
+                            downvote: travel.downvote + 1
+
+                        }
+                    )
+                }
+            )
+
+            if (!response.ok) {
+                throw new Error("Oops!")
+            }
+
+            setVoted(
+                prevVoted => !prevVoted
+            )                         
+            
+        } catch (error) {
+            console.error(error.message)
+        }
     }
 
     return (

@@ -9,8 +9,8 @@
       "endDate": "24 Jan, 2021",
       "description": "Bali received the Best Island award from Travel and Leisure in 2010.[73] Bali won because of its attractive surroundings (both mountain and coastal areas), diverse tourist attractions, excellent international and local restaurants, and the friendliness of the local people.",
       "imageUrl": "./Images/Indonesia.jpg",
-      "upvote": 23,
-      "downvote": 4
+      "upvote": 29,
+      "downvote": 9
     },
     {
       "id": 1,
@@ -21,7 +21,7 @@
       "endDate": "24 Jan, 2021",
       "description": "The Great Pyramid of Giza (also known as the Pyramid of Khufu or the Pyramid of Cheops) is the oldest and largest of the pyramids in the Giza pyramid complex bordering present-day Giza in Greater Cairo, Egypt. It is the oldest of the Seven Wonders of the Ancient World, and the only one to remain largely intact.",
       "imageUrl": "./Images/Egypt.jpg",
-      "upvote": 30,
+      "upvote": 32,
       "downvote": 0
     },
     {

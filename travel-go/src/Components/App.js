@@ -12,15 +12,17 @@ const App = () => {
     
     const [AllData,setAllData] = useState([])
     const [loading,setLoading] = useState(true)
-    let [voted,setVoted] = useState(true);
+    // voted state just triggers the useEffect each time there has been a vote
+    const [voted,setVoted] = useState(true);
     const [currentPage, setCurrentPage] = useState(0);    
     const totalPages = Math.ceil(AllData.length / countPerPage);
     const pagedData = AllData.slice(
         currentPage * countPerPage,
         (currentPage * countPerPage) + countPerPage
     )
-
+    
     const requestTravels = async ()=>{
+
         try {            
             // uncomment below to activate loader componenet each time its voted
             // i disabled it just to showcase loader component once
@@ -34,9 +36,11 @@ const App = () => {
                     }
                 }
             )            
+
             if (!response.ok){
-                throw new Error("Oop!")
-            }            
+                throw new Error("Oops!")
+            }  
+
             const json = await response.json();   
             setAllData(json)
             // since i am only checking for loading once
@@ -47,17 +51,15 @@ const App = () => {
             }                        
             // setLoading(false) -- line 48
         } catch (error) {
-            console.error(error)
+            console.error(error.message)
         }
     }
 
     useEffect(
         () => {
-            if(voted){                                      
-                requestTravels()                                
-                setVoted(false)
-            }                                    
-        }
+            requestTravels()
+        },
+        [voted]
     )
      
     return (        
@@ -85,6 +87,5 @@ const App = () => {
         </div>
     )
 }    
-
 
 export default App;
