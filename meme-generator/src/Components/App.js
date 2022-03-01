@@ -1,7 +1,14 @@
+import Nav from "./Nav"
+import Meme from "./Meme"
+import "../Styles/index.css"
+
 const App = ()=>{
 
     return (
-        <div>Hi</div>
+        <div>
+            <Nav/>
+            <Meme/>
+        </div>
     )
 }
 
