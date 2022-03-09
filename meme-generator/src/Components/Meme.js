@@ -1,4 +1,5 @@
 import {useState,useEffect} from "react"
+import Vote from "./Vote"
 
 const MemeImageApi = "https://api.imgflip.com/get_memes"
 
@@ -37,7 +38,7 @@ const Meme = ()=>{
         try {
             const response = await fetch(MemeImageApi)
             const json = await response.json()
-            setMemeData(json.data.memes)
+            setMemeData(json.data.memes)            
         } catch (error) {
             console.error(error.message)
         }
@@ -68,9 +69,9 @@ const Meme = ()=>{
     }
     
     useEffect(
-        ()=>(
-            fetchMemesImages()
-        ),
+        ()=>{
+            fetchMemesImages()                  
+        },
         []
     )
     
@@ -92,9 +93,12 @@ const Meme = ()=>{
                 </button>
             </form>
             <main>
-                <p>{meme.topText}</p>
-                <img src={meme.image} alt={meme.altImage}/>
-                <p>{meme.bottomText}</p>
+                <div>
+                    <p>{meme.topText}</p>
+                    <img src={meme.image} alt={meme.altImage} />
+                    <p>{meme.bottomText}</p>
+                </div>
+                <Vote memeId={prevImageId}/>
             </main>
         </div>
 
