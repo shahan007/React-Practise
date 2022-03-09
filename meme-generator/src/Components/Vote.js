@@ -98,7 +98,7 @@ const Vote = ({memeId})=>{
     return (
         <div>
             <button onClick={voting.bind(this,"upvote")}>Upvote</button>
-            <p>{votes}</p>
+            <p className="meme-votes">{votes}</p>
             <button onClick={voting.bind(this, "downvote")}>Downvote</button>
         </div>
     )

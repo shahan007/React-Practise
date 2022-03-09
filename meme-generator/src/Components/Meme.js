@@ -76,8 +76,8 @@ const Meme = ()=>{
     )
     
     return (
-        <div>
-            <form onSubmit={onSubmit}>
+        <div className="container">
+            <form className="form-grid" onSubmit={onSubmit}>
                 <input 
                     name="topText"
                     value={meme.topText}
@@ -92,11 +92,11 @@ const Meme = ()=>{
                     Generate
                 </button>
             </form>
-            <main>
-                <div>
-                    <p>{meme.topText}</p>
-                    <img src={meme.image} alt={meme.altImage} />
-                    <p>{meme.bottomText}</p>
+            <main className="meme-container">
+                <div className="meme">
+                    <p className="meme-text meme-top">{meme.topText}</p>
+                    <img className="meme-image" src={meme.image} alt={meme.altImage} />
+                    <p className="meme-text  meme-bottom">{meme.bottomText}</p>
                 </div>
                 <Vote memeId={prevImageId}/>
             </main>
