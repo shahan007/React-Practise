@@ -95,12 +95,26 @@ const Vote = ({memeId})=>{
         ), [memeId]
     )
     
-    return (
-        <div>
-            <button onClick={voting.bind(this,"upvote")}>Upvote</button>
+    return (                        
+        <div className="meme-voting">
+            <button 
+                onClick={
+                    voting.bind(this, "upvote")
+                }
+                className="btn upvote-green"
+            >
+                <i className="fa-solid fa-thumbs-up"></i>
+            </button>
             <p className="meme-votes">{votes}</p>
-            <button onClick={voting.bind(this, "downvote")}>Downvote</button>
-        </div>
+            <button 
+                onClick={
+                    voting.bind(this, "downvote")
+                }
+                className="btn downvote-red"
+            >
+                <i className="fa-solid fa-thumbs-down"></i>
+            </button>
+        </div>    
     )
 }
 

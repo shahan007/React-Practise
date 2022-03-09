@@ -79,26 +79,30 @@ const Meme = ()=>{
         <div className="container">
             <form className="form-grid" onSubmit={onSubmit}>
                 <input 
+                    className="meme-input"
+                    maxlength="50"
                     name="topText"
                     value={meme.topText}
                     onChange={onHandleChange}
                 />
                 <input
+                    className="meme-input"
+                    maxlength="50"
                     name="bottomText"
                     value={meme.bottomText}
                     onChange={onHandleChange}
                 />
-                <button>
-                    Generate
+                <button className="btn meme-generator-btn">
+                    get me new image
                 </button>
             </form>
             <main className="meme-container">
-                <div className="meme">
+                <div className="meme-content">
                     <p className="meme-text meme-top">{meme.topText}</p>
                     <img className="meme-image" src={meme.image} alt={meme.altImage} />
                     <p className="meme-text  meme-bottom">{meme.bottomText}</p>
                 </div>
-                <Vote memeId={prevImageId}/>
+                {prevImageId !== "" && <Vote memeId={prevImageId}/>}
             </main>
         </div>
 
