@@ -74,20 +74,20 @@ const Meme = ()=>{
         },
         []
     )
-    
+    console.log(prevImageId)
     return (
         <div className="container">
             <form className="form-grid" onSubmit={onSubmit}>
                 <input 
                     className="meme-input"
-                    maxlength="50"
+                    maxLength="50"
                     name="topText"
                     value={meme.topText}
                     onChange={onHandleChange}
                 />
                 <input
                     className="meme-input"
-                    maxlength="50"
+                    maxLength="50"
                     name="bottomText"
                     value={meme.bottomText}
                     onChange={onHandleChange}
@@ -96,14 +96,18 @@ const Meme = ()=>{
                     get me new image
                 </button>
             </form>
-            <main className="meme-container">
-                <div className="meme-content">
-                    <p className="meme-text meme-top">{meme.topText}</p>
-                    <img className="meme-image" src={meme.image} alt={meme.altImage} />
-                    <p className="meme-text  meme-bottom">{meme.bottomText}</p>
-                </div>
-                {prevImageId !== "" && <Vote memeId={prevImageId}/>}
-            </main>
+            {
+                prevImageId !== ""
+                &&
+                <main className="meme-container">
+                    <div className="meme-content">
+                        <p className="meme-text meme-top">{meme.topText}</p>
+                        <img className="meme-image" src={meme.image} alt={meme.altImage} />
+                        <p className="meme-text  meme-bottom">{meme.bottomText}</p>
+                    </div>
+                    <Vote memeId={prevImageId} />
+                </main>
+            }
         </div>
 
     )
