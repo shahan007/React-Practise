@@ -79,14 +79,15 @@ nav{
 
 .meme-content{
     position: relative;
-    text-align: center;            
+    text-align: center;                
 }
 
 .meme-image{
     width:70%;   
     border-radius: 6px;    
     transition: all 200ms ease-in-out;   
-    height:90vh;
+    max-height: 90vh;        
+    object-fit: fill;        
 }
 
 .meme-image:hover{
