@@ -1,4 +1,5 @@
-import {useState,useEffect} from "react"
+import {useState,useEffect,useRef} from "react"
+import html2canvas from "html2canvas"
 import Vote from "./Vote"
 
 const MemeImageApi = "https://api.imgflip.com/get_memes"
@@ -14,10 +15,11 @@ const Meme = ()=>{
             image:"",
             altImage:"",
         }
-    )
+    )    
+    const memeImage = useRef(null)
     
-
     const onHandleChange = event => {
+
         const {name,value} = event.target
         setMeme(
             prevMeme => (
@@ -30,11 +32,13 @@ const Meme = ()=>{
     }   
 
     const onSubmit = event => {
+
         event.preventDefault()
         setMemeImage()
     }
     
     const fetchMemesImages = async ()=>{
+
         try {
             const response = await fetch(MemeImageApi)
             const json = await response.json()
@@ -45,6 +49,7 @@ const Meme = ()=>{
     }
     
     const generateRandomeImage = ()=>{
+
         const randomIndex = Math.floor(Math.random() * memeData.length)
         return memeData[randomIndex]
     }
@@ -67,14 +72,26 @@ const Meme = ()=>{
         )                
         setPrevImageId(image.id)
     }
+
+    const download = async () => (
+        html2canvas(
+            memeImage.current,
+            { letterRendering: 1, useCORS: true }
+        ).then(canvas => {
+            let link = document.createElement('a');
+            link.setAttribute('download', 'meme-image.png');
+            link.setAttribute('href', canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"));
+            link.click();
+        })
+    )
     
     useEffect(
         ()=>{
-            fetchMemesImages()                  
+            fetchMemesImages()                              
         },
         []
     )
-    console.log(prevImageId)
+    
     return (
         <div className="container">
             <form className="form-grid" onSubmit={onSubmit}>
@@ -100,13 +117,19 @@ const Meme = ()=>{
                 prevImageId !== ""
                 &&
                 <main className="meme-container">
-                    <div className="meme-content">
+                    <div className="meme-content" ref={memeImage}>
                         <p className="meme-text meme-top">{meme.topText}</p>
                         <img className="meme-image" src={meme.image} alt={meme.altImage} />
                         <p className="meme-text  meme-bottom">{meme.bottomText}</p>
                     </div>
                     <Vote memeId={prevImageId} />
-                </main>
+                    <button 
+                        onClick={download}
+                        className="btn meme-download"
+                    >
+                        Download
+                    </button>
+                </main>                
             }
         </div>
 
