@@ -5,7 +5,7 @@ import Home from "./Components/Home/Home"
 import Post from "./Components/Post/Post"
 import Nav from './Components/Nav/Nav';
 import Users from "./Components/Users/Users";
-import MyFooter from "./Components/MyFooter"
+import MyFooter from "./Components/Footer/MyFooter"
 import { Content } from "antd/lib/layout/layout";
 
 const App=  ()=> {
