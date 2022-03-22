@@ -4,8 +4,8 @@ const { Footer } = Layout;
 const MyFooter = () => {
 
     return (
-        <Footer>
-            Footer
+        <Footer style={{ textAlign: 'center' }}>
+            Made with ❤ by Shahan
         </Footer>
     )
 }

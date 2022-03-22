@@ -1,12 +1,12 @@
-import { Collapse, Comment, Tooltip, List } from "antd"
+import { Collapse, Comment, Tooltip, List,Pagination,Row} from "antd"
 import moment from "moment"
 const { Panel } = Collapse;
 
-const Comments = ({comments}) => {
-
+const Comments = (props) => {
+    
     return (
-        <Collapse
-            accordion
+        <Collapse                 
+            defaultActiveKey={['1']} 
             style={{
                 "marginBottom": "20px"
             }}
@@ -14,9 +14,9 @@ const Comments = ({comments}) => {
             <Panel header="Comments" key="1">
                 < List
                     className="comment-list"
-                    header={`${comments.length} comments`}
+                    header={`${props.commentCount} comments`}
                     itemLayout="horizontal"
-                    dataSource={comments}
+                    dataSource={props.comments}
                     renderItem={comment => (
                         <li>
                             <Comment                            
@@ -39,7 +39,23 @@ const Comments = ({comments}) => {
                             />
                         </li>
                     )}
-                />                
+                />                    
+                <Row
+                    style={{
+                        "justifyContent": "center",
+                        "alignItems": "center",
+                        "padding": "30px 0"
+                    }}
+                >
+                    <Pagination
+                        showQuickJumper
+                        pageSize={props.commentPageStatus.commentsPerPage}
+                        pageSizeOptions={[2, 4, 8]}
+                        defaultCurrent={props.commentPageStatus.currentPage}
+                        total={props.commentCount}
+                        onChange={props.navigateToPage}
+                    />                
+                </Row>
             </Panel>
         </Collapse>            
     )
