@@ -39,12 +39,13 @@ const Home = () => {
             const json = await response.json()            
 
             setPosts(json)
-            setPostsCount(pageCounts)
-            setLoading(false)
+            setPostsCount(pageCounts)            
         } catch (error) {
             console.error("Oops")
             console.error(error.message)
-        }        
+        } finally{
+            setLoading(false)
+        }
     }
 
     useEffect(()=>{

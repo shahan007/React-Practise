@@ -26,11 +26,11 @@ const Post = ()=>{
             }            
             const json = await response.json()
 
-            setPost(json)            
-            setLoading(false)
+            setPost(json)                        
         } catch (error) {
             console.error("Oops")
-            console.error(error.message)
+            console.error(error.message)            
+        } finally {
             setLoading(false)
         }
     }
@@ -47,13 +47,13 @@ const Post = ()=>{
                 throw error
             }
             const json = await response.json()
-            setComments(json)            
-            setLoading(false)
+            setComments(json)                        
         } catch (error) {
             console.error("Oops")
-            console.error(error.message)
+            console.error(error.message)            
+        }  finally {
             setLoading(false)
-        }        
+        }
     }
 
     useEffect(() => {
@@ -74,7 +74,7 @@ const Post = ()=>{
         <Content align="center">    
             <Space size="large" direction="vertical">
                 <Row                                                               
-                    style={{ "width": md ? "60vw": "50vw" }}
+                    style={{ "width": md ? "55vw": "70vw" }}
                 >                                
                     {
                         !Object.keys(post).length ?
@@ -94,7 +94,7 @@ const Post = ()=>{
                     }                
                 </Row>
                 <Row style={{ 
-                    "width": md ? "60vw" : "50vw",
+                    "width": md ? "55vw" : "70vw",
                     "textAlign":"left" 
                     }}
                 >
