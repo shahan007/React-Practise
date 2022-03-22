@@ -68,7 +68,7 @@ const Home = () => {
                         <p>No Posts to show !</p>
                         :     
                         <>
-                        <Row gutter={[24, 32]}>
+                        <Row gutter={[0, 32]}>
                             {
                                 posts.map(
                                     post => (

@@ -1,12 +1,16 @@
-import { Card } from "antd";
+import { Card,Grid } from "antd";
 import { Link } from "react-router-dom";
+const { useBreakpoint } = Grid
 
 const MiniPost = (props) => {
+
+    const {md} = useBreakpoint()
     
     return (
         <Card 
             style={{
-                "width": "35vw"
+                "textAlign":"left",
+                "width": md ? "35vw" : "55vw"
             }}
 
             title={
