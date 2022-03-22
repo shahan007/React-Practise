@@ -4,7 +4,7 @@ import { useState } from 'react';
 // import LeftMenu from './LeftMenu'
 import RightMenu from './RightMenu'
 import { Drawer, Button } from 'antd';
-
+import logo from "./Styles/logo.png"
 
 const  Navbar = () => {
     
@@ -18,7 +18,7 @@ const  Navbar = () => {
     return (
         <nav className="menuBar">
             <div className="logo">
-                <a href="">logo</a>
+                <img src={logo} alt="logo"/>
             </div>
             <div className="menuCon">
                 {/* <div className="leftMenu">
