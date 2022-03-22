@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import PageLoader from "../Loader/PageLoader";
+import Loader from "../Loader/Loader";
 import Comments from "./Comment";
 import { Card, Row, Layout, Space ,Col,Grid} from "antd";
 const { useBreakpoint } = Grid;
@@ -16,7 +16,8 @@ const Post = ()=>{
     const [commentPageStatus, setCommentPageStatus] = useState({
         currentPage: 1,
         commentsPerPage: 2
-    })        
+    })            
+    const [commentLoading,setCommentLoading] = useState(true)
     const { md } = useBreakpoint(); 
     
     const requestPostData = async () => {
@@ -43,8 +44,8 @@ const Post = ()=>{
     const requestComments = async () => {
 
         const { currentPage,commentsPerPage} = commentPageStatus
-
-        setLoading(true)
+        
+        setCommentLoading(true)
         const url = `http://localhost:8000/comments?postId=${postId}&_page=${currentPage}&_limit=${commentsPerPage}`
         try {
             const response = await fetch(url)
@@ -61,8 +62,8 @@ const Post = ()=>{
         } catch (error) {
             console.error("Oops")
             console.error(error.message)            
-        }  finally {
-            setLoading(false)
+        }  finally {            
+            setCommentLoading(false)
         }
     }
 
@@ -83,7 +84,7 @@ const Post = ()=>{
 
     if (loading) {
         return (
-            <PageLoader />
+            <Loader />
         )
     }
     
@@ -125,6 +126,7 @@ const Post = ()=>{
                                     navigateToPage={navigateToPage}
                                     commentCount={commentCount}
                                     commentPageStatus={commentPageStatus}
+                                    commentLoading={commentLoading}
                                 />
                             </Col>
                         </>

@@ -1,19 +1,18 @@
 import { Row,  Spin } from "antd";
 
-const PageLoader = () => {
+const Loader = ({height="80vh"}) => {
 
     return (
         <Row
             justify="space-around"
             align="middle"
             style={{
-                "height": "80vh"
+                "height": height
             }}
         >
             <Spin size="large" />
         </Row>            
-
     )
 }
 
-export default PageLoader
+export default Loader

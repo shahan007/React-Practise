@@ -1,5 +1,5 @@
 import MiniPost from "../Post/MiniPost";
-import PageLoader from "../Loader/PageLoader";
+import Loader from "../Loader/Loader";
 import { useState,useEffect } from "react";
 import { Col, Row, Layout, Grid, Pagination, Space } from "antd";
 const { useBreakpoint } = Grid
@@ -16,16 +16,18 @@ const Home = () => {
     const [postsCount,setPostsCount] = useState(0)
     const { md } = useBreakpoint();
 
-    const navigateToPage = (pageNumber,pagesize) => {
+    const navigateToPage = (pageNumber,pagesize) => {        
         setPageStatus({
             currentPage:pageNumber,
             postsPerPage:pagesize
-        })  
+        })          
     }    
     
     const requestPosts = async () => {
-
+        
         const {currentPage,postsPerPage} = pageStatus
+        
+        setLoading(true)
         const url = `http://localhost:8000/posts?_page=${currentPage}&_limit=${postsPerPage}`
         try {
             const response = await fetch(url)
@@ -56,7 +58,7 @@ const Home = () => {
     
     if(loading){
         return (            
-            <PageLoader/>
+            <Loader/>
         )
     }
     
