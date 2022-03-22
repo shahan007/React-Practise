@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import PageLoader from "../Loader/PageLoader";
 import { Card } from "antd";
-import { Row, Layout,  Spin } from "antd";
+import { Row, Layout } from "antd";
 const { Content } = Layout
 
 const Post = ()=>{
@@ -37,24 +38,17 @@ const Post = ()=>{
 
     if (loading) {
         return (
-            <Row
-                justify="space-around" 
-                align="middle"
-                style={{                    
-                    "height": "80vh"                    
-                }}
-            >
-                <Spin size="large" />
-            </Row>
+            <PageLoader />
         )
     }
     
     return (        
-        <Content style={{ "padding": "30px" }}>
+        <Content >            
             <Row
                 justify="space-around" 
                 align="middle"
-            >
+                style={{ "padding": "30px" }}
+            >                                
                 {
                     !Object.keys(post).length ?
                     <p>No such Post lol</p> :
@@ -72,7 +66,7 @@ const Post = ()=>{
                             post.body
                         }
                     </Card>
-                }
+                }                
             </Row>
         </Content>               
     )

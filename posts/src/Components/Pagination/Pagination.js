@@ -1,3 +1,5 @@
+import { Pagination } from "antd";
+
 const Pagination = () => {
 
     return (

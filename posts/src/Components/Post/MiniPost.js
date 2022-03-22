@@ -1,4 +1,5 @@
 import { Card } from "antd";
+import { Link } from "react-router-dom";
 
 const MiniPost = (props) => {
     
@@ -21,6 +22,7 @@ const MiniPost = (props) => {
                 props.body.slice(0, 20) + "..." :
                 props.body
             }
+            <Link to={`/posts/${props.postId}`} >Expand</Link>
         </Card>
     )
 }

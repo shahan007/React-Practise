@@ -4,14 +4,8 @@ const { Footer } = Layout;
 const MyFooter = () => {
 
     return (
-        <Footer 
-            style={{
-                "position":"fixed",
-                "bottom":"0",
-                "width":"100vw"                
-            }}
-        >
-            Faggs
+        <Footer>
+            Footer
         </Footer>
     )
 }

@@ -1,15 +1,17 @@
 import MiniPost from "../Post/MiniPost";
-// import Pagination from "../Pagination/Pagination";
+import PageLoader from "../Loader/PageLoader";
 import { useState,useEffect } from "react";
-import { Col, Row, Layout, Grid, Spin, Pagination } from "antd";
-import { Link } from "react-router-dom";
+import { Col, Row, Layout, Grid, Pagination, Space } from "antd";
 const { useBreakpoint } = Grid
 const { Content } = Layout
 
 const Home = () => {
     
     const [posts,setPosts] = useState([])
-    const [pageStatus,setPageStatus] = useState({currentPage:1,postsPerPage:5})
+    const [pageStatus,setPageStatus] = useState({
+        currentPage:1,
+        postsPerPage:5
+    })
     const [loading,setLoading] = useState(true)
     const [postsCount,setPostsCount] = useState(0)
     const { md } = useBreakpoint();
@@ -53,66 +55,59 @@ const Home = () => {
     
     if(loading){
         return (            
-            <Row 
-                justify="space-around" 
-                align="middle"
-                style={{                     
-                     "height": "80vh"                   
-                      }}
-            >
-                <Spin size="large" />
-            </Row>            
+            <PageLoader/>
         )
     }
     
     return (
         <Content>
-            <Content style={{ "padding": "30px" }}>
-                {
-                    posts.length === 0 ?
-                    <p>No Posts to show !</p>
-                    :     
-                    <>
-                    <Row gutter={[24, 32]}>
-                        {
-                            posts.map(
-                                post => (
-                                    <Col 
-                                        justify="space-around"
-                                        align="middle"
-                                        span={md ? 12 : 24} 
-                                        key={post.id}                                        
-                                    >
-                                        <MiniPost
-                                            postId={post.id}
-                                            title={post.title}
-                                            body={post.body}
-                                        />
-                                        <Link to={`/posts/${post.id}`} >Expand</Link>
-                                    </Col>
+            <Space size="large">
+                <Content>
+                    {
+                        posts.length === 0 ?
+                        <p>No Posts to show !</p>
+                        :     
+                        <>
+                        <Row gutter={[24, 32]}>
+                            {
+                                posts.map(
+                                    post => (
+                                        <Col 
+                                            justify="space-around"
+                                            align="middle"
+                                            span={md ? 12 : 24} 
+                                            key={post.id}                                        
+                                        >
+                                            <MiniPost
+                                                postId={post.id}
+                                                title={post.title}
+                                                body={post.body}
+                                            />                                        
+                                        </Col>
+                                    )
                                 )
-                            )
-                        }
-                    </Row>   
-                    <Row 
-                        style={{
-                            "justifyContent": "center",
-                            "alignItems": "center",
-                            "padding":"100px 0"
-                        }}                    
-                    >
-                        <Pagination                                                       
-                            showQuickJumper   
-                            pageSize={pageStatus.postsPerPage}
-                            pageSizeOptions={[5,10,15,20,25]}                             
-                            defaultCurrent={pageStatus.currentPage} 
-                            total={postsCount} 
-                            onChange={navigateToPage} 
-                        />
-                    </Row>                                                                     
-                    </>               
-                }
-            </Content>
+                            }
+                        </Row>   
+                        <Row 
+                            style={{
+                                "justifyContent": "center",
+                                "alignItems": "center",
+                                "padding":"30px 0"
+                            }}                    
+                        >
+                            <Pagination                                                       
+                                showQuickJumper   
+                                pageSize={pageStatus.postsPerPage}
+                                pageSizeOptions={[5,10,15,20,25]}                             
+                                defaultCurrent={pageStatus.currentPage} 
+                                total={postsCount} 
+                                onChange={navigateToPage} 
+                            />
+                        </Row>                                                                     
+                        </>               
+                    }
+                </Content>
+            </Space>
         </Content>
     )
 }
