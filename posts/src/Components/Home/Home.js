@@ -63,7 +63,7 @@ const Home = () => {
     }
     
     return (
-        <Content>
+        <Content style={{"padding":"30px 0"}}>
             <Space size="large">
                 <Content>
                     {
@@ -71,7 +71,7 @@ const Home = () => {
                         <p>No Posts to show !</p>
                         :     
                         <>
-                        <Row gutter={[0, 32]}>
+                        <Row gutter={[0, 32]}>                            
                             {
                                 posts.map(
                                     post => (
@@ -85,11 +85,12 @@ const Home = () => {
                                                 postId={post.id}
                                                 title={post.title}
                                                 body={post.body}
+                                                userId={post.userId}
                                             />                                        
                                         </Col>
                                     )
                                 )
-                            }
+                            }                            
                         </Row>   
                         <Row 
                             style={{
