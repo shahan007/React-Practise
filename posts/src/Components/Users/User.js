@@ -4,7 +4,7 @@ import {
     Layout,Grid,Col,Row,Descriptions,Card,Tooltip,Avatar,Skeleton,Collapse,Button
 } from "antd"
 import { UserOutlined } from '@ant-design/icons';
-import Map from "./Map";
+import Map from "../Map/Map";
 const { Content } = Layout
 const { Meta } = Card
 const { Panel } = Collapse;
@@ -89,7 +89,13 @@ const User = (props)=>{
                                             </p>                                            
                                         }>
                                             {`${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}`}
-                                            <Map setIsMapModalVisible={setIsMapModalVisible} isMapModalVisible={isMapModalVisible} />
+                                            <Map 
+                                                username={user.username} 
+                                                setIsMapModalVisible={setIsMapModalVisible} 
+                                                isMapModalVisible={isMapModalVisible} 
+                                                lat={user.address.geo.lat}
+                                                lng={user.address.geo.lng}
+                                            />
                                         </Descriptions.Item>                                        
                                     </Descriptions>                            
                                 </Panel>                                
