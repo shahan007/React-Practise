@@ -1,9 +1,10 @@
 import { useState,useEffect } from "react";
 import { useLocation } from "react-router-dom"
 import { 
-    Layout,Grid,Col,Row,Descriptions,Card,Tooltip,Avatar,Skeleton,Collapse 
+    Layout,Grid,Col,Row,Descriptions,Card,Tooltip,Avatar,Skeleton,Collapse,Button
 } from "antd"
 import { UserOutlined } from '@ant-design/icons';
+import Map from "./Map";
 const { Content } = Layout
 const { Meta } = Card
 const { Panel } = Collapse;
@@ -15,11 +16,15 @@ const User = (props)=>{
     const location = useLocation()
     const { user } = location.state
     const [userLoading,setUserLoading] = useState(true)
+    const [isMapModalVisible, setIsMapModalVisible] = useState(false);    
     const { md } = useBreakpoint()
 
+    const showModal = () => {
+        setIsMapModalVisible(true);
+    };
 
     useEffect(()=>{
-        setTimeout(() => (setUserLoading(false)),100)        
+        setTimeout(() => (setUserLoading(false)),500)        
     },[])
 
     return (
@@ -60,21 +65,40 @@ const User = (props)=>{
                                         column={{ xxl: 4, xl: 2, xs: 1 }}
                                         layout={md ? "vertical" : "horizontal"}
                                     >
-                                        <Descriptions.Item label="UserName">{user.name}</Descriptions.Item>
                                         <Descriptions.Item label="UserName">{user.username}</Descriptions.Item>
+                                        <Descriptions.Item label="Name">{user.name}</Descriptions.Item>
                                         <Descriptions.Item label="Phone">{user.phone}</Descriptions.Item>
+                                        <Descriptions.Item label="Email">{user.email}</Descriptions.Item>
                                         <Descriptions.Item label="Website">{user.website}</Descriptions.Item>
-                                        <Descriptions.Item label="Address">
-                                            {user.address.city + ", " + user.address.zipcode}
+                                        <Descriptions.Item label="Company">
+                                            {user.company.name}
                                         </Descriptions.Item>
+                                        <Descriptions.Item label={
+                                            <p>
+                                                Address
+                                                <Button 
+                                                    onClick={showModal}
+                                                    shape={"round"}
+                                                    size={"small"}
+                                                    style={{
+                                                        "float": md ? "right" : ""
+                                                    }}
+                                                >
+                                                    Map
+                                                </Button>
+                                            </p>                                            
+                                        }>
+                                            {`${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}`}
+                                            <Map setIsMapModalVisible={setIsMapModalVisible} isMapModalVisible={isMapModalVisible} />
+                                        </Descriptions.Item>                                        
                                     </Descriptions>                            
-                                </Panel>
-                            </Collapse>                            
+                                </Panel>                                
+                            </Collapse>                                                                                                                        
                         </Skeleton>
                     </Card>                            
                 </Col>                
                 {md && <Col span={2} order={4}/>}
-            </Row>            
+            </Row>                        
         </Content>
     )
 }

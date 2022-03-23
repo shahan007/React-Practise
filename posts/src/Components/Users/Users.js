@@ -1,6 +1,8 @@
+import { Empty } from "antd"
+
 const Users = () => {
     return (
-        <>Users</>
+        <Empty/>
     )
 }
 

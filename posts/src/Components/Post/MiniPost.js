@@ -31,7 +31,7 @@ const MiniPost = (props) => {
             console.error("Oops")
             console.error(error.message)
         } finally {
-            setTimeout(() => (setLoading(false)),1000)            
+            setTimeout(() => (setLoading(false)),500)            
         }
     }
 

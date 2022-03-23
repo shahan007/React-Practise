@@ -1,4 +1,4 @@
-import { Collapse, Comment, Tooltip, List,Pagination,Row,Spin} from "antd"
+import { Collapse, Comment, Tooltip, List,Pagination,Row} from "antd"
 import Loader from "../Loader/Loader";
 import moment from "moment"
 const { Panel } = Collapse;
