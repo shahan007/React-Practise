@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
 import Comments from "./Comment";
-import { Card, Row, Layout, Space ,Col,Grid} from "antd";
+import { Card, Row, Layout, Space ,Col,Grid,Empty} from "antd";
 const { useBreakpoint } = Grid;
 const { Content } = Layout
 
@@ -93,23 +93,31 @@ const Post = ()=>{
             <Space size="large" direction="vertical">
                 <Row                                                               
                     style={{ "width": md ? "55vw": "70vw" }}
-                >                                
-                    {
-                        !Object.keys(post).length ?
-                        <p>No such Post lol</p> :
-                        <Card      
-                            style={{"textAlign":"left"}}                  
-                            title={
-                                post.id + ":  " + post.title
-                            }
-                            bordered={true}
-                            hoverable
-                        >
-                            {
-                                post.body
-                            }
-                        </Card>
-                    }                
+                >               
+                    <Col span={24}>
+                        {
+                            !Object.keys(post).length ?
+                            <div style={{                                                        
+                                "margin":"auto",
+                                "padding":"100px"
+                            }}
+                            >
+                                <Empty /> 
+                            </div> :
+                            <Card      
+                                style={{"textAlign":"left"}}                  
+                                title={
+                                    post.id + ":  " + post.title
+                                }
+                                bordered={true}
+                                hoverable
+                            >
+                                {
+                                    post.body
+                                }
+                            </Card>
+                        }     
+                    </Col>                            
                 </Row>
                 <Row style={{ 
                     "width": md ? "55vw" : "70vw",

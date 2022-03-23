@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Card,Grid,Skeleton,Avatar,Space} from "antd";
+import { Card,Grid,Skeleton,Avatar,Tooltip} from "antd";
+import { UserOutlined} from '@ant-design/icons';
 import { Link } from "react-router-dom";
 const {Meta} = Card
 const { useBreakpoint } = Grid
@@ -30,7 +31,7 @@ const MiniPost = (props) => {
             console.error("Oops")
             console.error(error.message)
         } finally {
-            setTimeout(() => (setLoading(false)),500)            
+            setTimeout(() => (setLoading(false)),1000)            
         }
     }
 
@@ -49,7 +50,13 @@ const MiniPost = (props) => {
         >            
             <Skeleton loading={loading} avatar active>
                 <Meta
-                    avatar={<Avatar src={`https://ui-avatars.com/api/?name=${user.name}`} />}
+                    avatar={
+                        <Tooltip title={user.name} placement="left">
+                            <Link to={`/users/${user.id}`} state={{"user":user}} >
+                                <Avatar icon={<UserOutlined />} src={`https://ui-avatars.com/api/?name=${user.name}`} />
+                            </Link>                            
+                        </Tooltip>                        
+                    }
                     title={
                         props.title.length > 20 ?
                         props.postId + ":  " + props.title.slice(0, 20) + "..." :

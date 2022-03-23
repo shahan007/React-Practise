@@ -1,7 +1,7 @@
 import MiniPost from "../Post/MiniPost";
 import Loader from "../Loader/Loader";
 import { useState,useEffect } from "react";
-import { Col, Row, Layout, Grid, Pagination, Space } from "antd";
+import { Col, Row, Layout, Grid, Pagination, Space,Empty } from "antd";
 const { useBreakpoint } = Grid
 const { Content } = Layout
 
@@ -68,7 +68,13 @@ const Home = () => {
                 <Content>
                     {
                         posts.length === 0 ?
-                        <p>No Posts to show !</p>
+                        <div style={{
+                                "margin": "auto",
+                                "padding": "100%"
+                            }}
+                        >
+                            <Empty />
+                        </div>
                         :     
                         <>
                         <Row gutter={[0, 32]}>                            
