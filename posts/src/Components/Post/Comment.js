@@ -53,6 +53,7 @@ const Comments = (props) => {
                             }}
                         >
                             <Pagination
+                                showSizeChanger
                                 showQuickJumper
                                 pageSize={props.commentPageStatus.commentsPerPage}
                                 pageSizeOptions={[2, 4, 8]}

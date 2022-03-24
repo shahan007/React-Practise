@@ -51,7 +51,7 @@ const MiniPost = (props) => {
             <Skeleton loading={loading} avatar active>
                 <Meta
                     avatar={
-                        <Tooltip title={user.name} placement="left">
+                        <Tooltip title={user.username} placement="left">
                             <Link to={`/users/${user.id}`} state={{"user":user}} >
                                 <Avatar icon={<UserOutlined />} src={`https://ui-avatars.com/api/?name=${user.name}`} />
                             </Link>                            

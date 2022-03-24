@@ -4,7 +4,7 @@ import {
     Layout,Grid,Col,Row,Descriptions,Card,Tooltip,Avatar,Skeleton,Collapse,Button
 } from "antd"
 import { UserOutlined } from '@ant-design/icons';
-import Map from "../Map/Map";
+import ModalMap from "../Map/Map";
 const { Content } = Layout
 const { Meta } = Card
 const { Panel } = Collapse;
@@ -89,7 +89,7 @@ const User = (props)=>{
                                             </p>                                            
                                         }>
                                             {`${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}`}
-                                            <Map 
+                                            <ModalMap
                                                 username={user.username} 
                                                 setIsMapModalVisible={setIsMapModalVisible} 
                                                 isMapModalVisible={isMapModalVisible} 

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
 import Comments from "./Comment";
 import Blank from "../Blank"
-import { Card, Row, Layout, Space ,Col,Grid} from "antd";
+import { Card, Row, Layout, Col,Grid} from "antd";
 const { useBreakpoint } = Grid;
 const { Content } = Layout
 
@@ -90,54 +90,54 @@ const Post = ()=>{
     }
     
     return (        
-        <Content align="center">    
-            <Space size="large" direction="vertical">
-                <Row                                                               
-                    style={{ "width": md ? "55vw": "70vw" }}
-                >               
-                    <Col span={24}>
-                        {
-                            !Object.keys(post).length ?
-                            <Blank />
-                            :
-                            <Card      
-                                style={{"textAlign":"left"}}                  
-                                title={
-                                    post.id + ":  " + post.title
-                                }
-                                bordered={true}
-                                hoverable
-                            >
-                                {
-                                    post.body
-                                }
-                            </Card>
-                        }     
-                    </Col>                            
-                </Row>
-                <Row style={{ 
-                    "width": md ? "55vw" : "70vw",
-                    "textAlign":"left" 
-                    }}
-                >
+        <Content style={{ "padding": "30px 0" }}>                
+            <Row>               
+                <Col span={ md ? 6 : 3}/>
+                <Col span={md ? 12 : 18}>
                     {
-                        Object.keys(post).length > 0
-                        &&
-                        <>
-                            <Col span={24} >
-                                <Comments 
-                                    comments={comments}
-                                    navigateToPage={navigateToPage}
-                                    commentCount={commentCount}
-                                    commentPageStatus={commentPageStatus}
-                                    commentLoading={commentLoading}
-                                />
-                            </Col>
-                        </>
-                    }
-                                        
-                </Row>
-            </Space>       
+                        !Object.keys(post).length ?
+                        <Blank />
+                        :
+                        <Card      
+                            style={{"textAlign":"left"}}                  
+                            title={
+                                post.id + ":  " + post.title
+                            }
+                            bordered={true}
+                            hoverable
+                        >
+                            {
+                                post.body
+                            }
+                        </Card>
+                    }     
+                </Col>   
+                <Col span={md ? 6 : 3} />                         
+            </Row>
+            <Row                 
+                style={{                     
+                    "marginTop":"30px" 
+
+                }}
+            >                                 
+                {
+                    Object.keys(post).length > 0
+                    &&
+                    <>
+                        <Col span={md ? 6 : 3} />        
+                        <Col span={md ? 12 : 18} >
+                            <Comments 
+                                comments={comments}
+                                navigateToPage={navigateToPage}
+                                commentCount={commentCount}
+                                commentPageStatus={commentPageStatus}
+                                commentLoading={commentLoading}
+                            />
+                        </Col>
+                        <Col span={md ? 6 : 3} />                   
+                    </>
+                }                
+            </Row>        
         </Content>               
     )
 }

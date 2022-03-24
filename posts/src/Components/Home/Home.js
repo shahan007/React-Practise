@@ -53,7 +53,7 @@ const Home = () => {
 
     useEffect(()=>{
         requestPosts()
-    },[pageStatus])    
+    },[pageStatus.currentPage,pageStatus.postsPerPage])    
     
 
     
@@ -62,7 +62,7 @@ const Home = () => {
             <Loader/>
         )
     }
-    
+    console.log("Dipe")
     return (
         <Content style={{"padding":"30px 0"}}>            
             <Content>
@@ -99,7 +99,8 @@ const Home = () => {
                             "padding":"30px 0"
                         }}                    
                     >
-                        <Pagination                                                       
+                        <Pagination          
+                            showSizeChanger                                             
                             showQuickJumper   
                             pageSize={pageStatus.postsPerPage}
                             pageSizeOptions={[5,10,15,20,25]}                             
