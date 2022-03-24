@@ -2,7 +2,8 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
 import Comments from "./Comment";
-import { Card, Row, Layout, Space ,Col,Grid,Empty} from "antd";
+import Blank from "../Blank"
+import { Card, Row, Layout, Space ,Col,Grid} from "antd";
 const { useBreakpoint } = Grid;
 const { Content } = Layout
 
@@ -97,13 +98,8 @@ const Post = ()=>{
                     <Col span={24}>
                         {
                             !Object.keys(post).length ?
-                            <div style={{                                                        
-                                "margin":"auto",
-                                "padding":"100px"
-                            }}
-                            >
-                                <Empty /> 
-                            </div> :
+                            <Blank />
+                            :
                             <Card      
                                 style={{"textAlign":"left"}}                  
                                 title={
