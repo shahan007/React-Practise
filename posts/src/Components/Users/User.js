@@ -30,11 +30,12 @@ const User = (props)=>{
     return (
         <Content style={{ "padding": "30px 0" }}>            
             <Row justify="center" gutter={[0, 24]}>
-                {md && <Col span={2} order={1}/>}
+                {md && <Col span={1.5} order={1}/>}
                 <Col span={md ? 14 : 20} order={md ? 2 : 2}>
                     <p>Posts and Comments</p>
                 </Col>                
-                <Col span={md ? 6 : 20} order={md ? 3 : 1}>
+                {md && <Col span={1} order={3} />}
+                <Col span={md ? 6 : 20} order={md ? 4 : 1}>
                     <Card
                         bordered={true}
                         hoverable
@@ -103,7 +104,7 @@ const User = (props)=>{
                         </Skeleton>
                     </Card>                            
                 </Col>                
-                {md && <Col span={2} order={4}/>}
+                {md && <Col span={1.5} order={5}/>}
             </Row>                        
         </Content>
     )
