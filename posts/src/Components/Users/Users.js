@@ -106,9 +106,7 @@ const Users = () => {
                     >
                         <Col span={3}/>
                         <Col span={18}>
-                            <Collapse
-                                defaultActiveKey={['1']}
-                            >
+                            <Collapse>
                                 <Panel header="Show On Map" key="1">
                                     <Card hoverable>
                                         <div style={{ height: '60vh' }}>
