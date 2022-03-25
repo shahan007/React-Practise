@@ -5,6 +5,7 @@ import {
 } from "antd"
 import { UserOutlined } from '@ant-design/icons';
 import ModalMap from "../Map/Map";
+import Album from "../Album/Album"
 const { Content } = Layout
 const { Meta } = Card
 const { Panel } = Collapse;
@@ -32,7 +33,14 @@ const User = (props)=>{
             <Row justify="center" gutter={[0, 24]}>
                 {md && <Col span={1.5} order={1}/>}
                 <Col span={md ? 14 : 20} order={md ? 2 : 2}>
-                    <p>Posts and Comments</p>
+                    <Row gutter={[0, 24]}>
+                        <Col span={24}>
+                            Posts & Comments
+                        </Col>
+                        <Col span={24}>
+                            <Album userId={user.id}/>
+                        </Col>
+                    </Row>                    
                 </Col>                
                 {md && <Col span={1} order={3} />}
                 <Col span={md ? 6 : 20} order={md ? 4 : 1}>
