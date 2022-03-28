@@ -4,7 +4,9 @@ import { useState } from 'react';
 import { useThemeSwitcher } from "react-css-theme-switcher";
 // import LeftMenu from './LeftMenu'
 import RightMenu from './RightMenu'
+import Loader from "../Loader/Loader";
 import { Drawer, Button , Menu,Switch} from 'antd';
+
 import logo from "./Styles/logo.png"
 
 const  Navbar = () => {
@@ -22,6 +24,12 @@ const  Navbar = () => {
         setIsDarkMode(isChecked);
         switcher({ theme: isChecked ? themes.dark : themes.light });
     };
+
+    if (status === "loading") {
+        return (
+            <Loader/>
+        )
+    }
 
     return (
         <nav className="menuBar">

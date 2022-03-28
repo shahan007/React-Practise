@@ -16,7 +16,7 @@ ReactDOM.render(
     <Router>
       <ThemeSwitcherProvider 
         themeMap={themes} 
-        defaultTheme="light"              
+        defaultTheme="light"         
       >
         <App />
       </ThemeSwitcherProvider>
