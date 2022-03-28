@@ -6,15 +6,14 @@
 }
 
 .logo {
-  width: 150px;
-  float: left;
+  width: 150px !important;
+  float: left !important;
 }
 
 .logo a {
-  display: inline-block;
-  font-size: 20px;
-  padding: 19px 20px;
-  text-transform: capitalize;
+  display: inline-block !important;
+  font-size: 20px !important;
+  padding: 19px 20px !important;  
 }
 
 .menuCon {
@@ -44,40 +43,40 @@
 }
 
 .menuCon .rightMenu {
-  float: right;
+  float: right !important;
 }
 
 .barsMenu {
-  float: right;
-  height: 32px;
-  padding: 6px;
-  margin-top: 8px;
-  display: none;
-  background: none;
+  float: right !important;
+  height: 32px !important;
+  padding: 6px !important;
+  margin-top: 8px !important;
+  display: none !important;
+  background: none !important;
 }
 
 .barsBtn {
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: #1890ff;
-  position: relative;
+  display: block !important;
+  width: 20px !important;
+  height: 2px !important;
+  background: #9254de !important;
+  position: relative !important;
 }
 
 .barsBtn:after,
 .barsBtn:before {
   content: attr(x);
-  width: 20px;
-  position: absolute;
-  top: -6px;
-  left: 0;
-  height: 2px;
-  background: #1890ff;
+  width: 20px !important;
+  position: absolute !important;
+  top: -6px !important;
+  left: 0 !important;
+  height: 2px !important;
+  background: #9254de !important;
 }
 
 .barsBtn:after {
-  top: auto;
-  bottom: -6px;
+  top: auto !important;
+  bottom: -6px !important;
 }
 
 .ant-drawer-body {
@@ -99,17 +98,17 @@
 }
 
 .ant-drawer-body .ant-menu-horizontal>.ant-menu-item:hover {
-  border-bottom-color: transparent;
+  border-bottom-color: transparent !important;
 }
 
 @media (max-width: 767px) {
   .barsMenu {
-    display: inline-block;
+    display: inline-block !important;
   }
 
   .leftMenu,
   .rightMenu {
-    display: none;
+    display: none !important;
   }
 
   .logo a {

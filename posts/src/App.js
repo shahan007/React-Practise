@@ -12,11 +12,7 @@ import { Content } from "antd/lib/layout/layout";
 const App=  ()=> {
     
   return (          
-      <Layout 
-        style={{
-          "background":"#FFFFFF"          
-        }}
-      >
+      <Layout>
        <BackTop/>
         <Nav/>      
         <Content style={{          

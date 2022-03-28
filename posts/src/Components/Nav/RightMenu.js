@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { Menu, Grid } from 'antd';
+import { Menu, Grid} from 'antd';
 const { useBreakpoint } = Grid;
 
 const RightMenu = (props) => {
 
     const { toggleDrawer,visible } = props
-    const menuItems = ["home", "posts", "users"]
+    const menuItems = ["home", "posts", "users"]    
     const { md } = useBreakpoint();        
 
     return (
@@ -20,7 +20,7 @@ const RightMenu = (props) => {
                         </Menu.Item>
                     )
                 )
-            }
+            }     
         </Menu>
     );
 }

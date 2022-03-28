@@ -1,18 +1,26 @@
 
 import "./Styles/Nav.css"
 import { useState } from 'react';
+import { useThemeSwitcher } from "react-css-theme-switcher";
 // import LeftMenu from './LeftMenu'
 import RightMenu from './RightMenu'
-import { Drawer, Button } from 'antd';
+import { Drawer, Button , Menu,Switch} from 'antd';
 import logo from "./Styles/logo.png"
 
 const  Navbar = () => {
     
     const [visible, setVisible] = useState(false)
+    const [isDarkMode, setIsDarkMode] = useState();
+    const { switcher, currentTheme, status, themes } = useThemeSwitcher();    
 
     // controls the visibility of the drawer
     const toggleDrawer = (visible) => {
         setVisible(visible)
+    };
+
+    const toggleTheme = (isChecked) => {
+        setIsDarkMode(isChecked);
+        switcher({ theme: isChecked ? themes.dark : themes.light });
     };
 
     return (
@@ -23,9 +31,14 @@ const  Navbar = () => {
             <div className="menuCon">
                 {/* <div className="leftMenu">
                     <LeftMenu />
-                </div> */}
+                </div> */}                
+                <Menu style={{ "float": "right" }}>
+                    <Menu.Item key="SwitchTheme" onClick={visible ? () => toggleDrawer(false) : ""}>
+                        <Switch checked={isDarkMode} onChange={toggleTheme} />
+                    </Menu.Item>
+                </Menu>                
                 <div className="rightMenu">
-                    <RightMenu />
+                    <RightMenu />                    
                 </div>
                 <Button 
                     className="barsMenu" 
