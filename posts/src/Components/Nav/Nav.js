@@ -42,7 +42,12 @@ const  Navbar = () => {
                 </div> */}                
                 <Menu style={{ "float": "right" }}>
                     <Menu.Item key="SwitchTheme" onClick={visible ? () => toggleDrawer(false) : ""}>
-                        <Switch checked={isDarkMode} onChange={toggleTheme} />
+                        <Switch 
+                            checked={isDarkMode} 
+                            onChange={toggleTheme} 
+                            checkedChildren="🌞"
+                            unCheckedChildren="🌜"                            
+                        />
                     </Menu.Item>
                 </Menu>                
                 <div className="rightMenu">
