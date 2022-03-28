@@ -9,7 +9,7 @@ const RightMenu = (props) => {
     const { md } = useBreakpoint();        
 
     return (
-        <Menu mode={md ? "horizontal" : "inline"}>
+        <Menu mode={md ? "horizontal" : "inline"} style={{"float":"right"}} overflowedIndicator={false}>
             {
                 menuItems.map(
                     menuItem => (

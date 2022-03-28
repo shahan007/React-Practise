@@ -74,7 +74,7 @@ const Home = () => {
                     <Row gutter={[0, 32]}>                            
                         {
                             posts.map(
-                                post => (
+                                (post,index) => (
                                     <Col 
                                         justify="space-around"
                                         align="middle"
