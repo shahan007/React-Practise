@@ -75,6 +75,7 @@ const Users = () => {
                         <Col span={3} />
                         <Col span={18}>
                             <Table 
+                                rowKey={record => record.id}
                                 pagination={false}                                
                                 dataSource={users}
                                 columns={[
@@ -107,7 +108,7 @@ const Users = () => {
                         <Col span={3}/>
                         <Col span={18}>
                             <Collapse>
-                                <Panel header="Show On Map" key="1">
+                                <Panel header="Show Users On Map" key="1">
                                     <Card hoverable>
                                         <div style={{ height: '60vh' }}>
                                             <UsersMap users={users} />     

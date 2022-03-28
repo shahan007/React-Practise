@@ -10,8 +10,7 @@ import MyFooter from "./Components/Footer/MyFooter"
 import { Content } from "antd/lib/layout/layout";
 
 const App=  ()=> {
-  
-  
+    
   return (          
       <Layout 
         style={{

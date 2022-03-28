@@ -43,7 +43,8 @@ const MiniPost = (props) => {
         <Card
             style={{
                 "textAlign": "left",
-                "width": md ? "35vw" : "55vw"
+                "width": md ? "35vw" : "55vw",
+                "borderRadius":"8px"
             }}            
             bordered={true}
             hoverable

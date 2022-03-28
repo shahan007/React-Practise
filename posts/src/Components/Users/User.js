@@ -1,44 +1,130 @@
 import { useState,useEffect } from "react";
 import { useLocation } from "react-router-dom"
 import { 
-    Layout,Grid,Col,Row,Descriptions,Card,Tooltip,Avatar,Skeleton,Collapse,Button
+    Layout,Grid,Col,Row,Descriptions,Card,Tooltip,Avatar,Skeleton,Collapse,Button,Divider,Pagination
 } from "antd"
 import { UserOutlined } from '@ant-design/icons';
 import ModalMap from "../Map/Map";
 import Album from "../Album/Album"
+import Post from "../Post/Post";
+import Blank from "../Blank";
 const { Content } = Layout
 const { Meta } = Card
 const { Panel } = Collapse;
 const { useBreakpoint } = Grid
 
-const User = (props)=>{
+const User = ()=>{
 
     
     const location = useLocation()
-    const { user } = location.state
+    const { user } = location.state    
     const [userLoading,setUserLoading] = useState(true)
+    const [posts,setPosts] = useState([])    
+    const [postStatus,setPostStatus] = useState({
+        currentPage : 1,
+        postsPerPage : 2,
+        postCount : 0
+    })
     const [isMapModalVisible, setIsMapModalVisible] = useState(false);    
     const { md } = useBreakpoint()
+
+    const requestPostData = async () => {
+
+        const {currentPage,postsPerPage} = postStatus
+
+        const url = `http://localhost:8000/posts?userId=${user.id}&_page=${currentPage}&_limit=${postsPerPage}`
+
+        try {
+            const response = await fetch(url)
+            if (!response.ok) {
+                const error = new Error(response.statusText)
+                error.status = response.status
+                throw error
+            }
+            const postCount = response.headers.get("X-Total-Count")    
+            const json = await response.json()            
+            
+            setPosts(json.map(post => post.id))
+            setPostStatus(
+                prevPostStatus => ({
+                    ...prevPostStatus,
+                    postCount: postCount
+                })
+            )
+        } catch (error) {
+            console.error("Oops")
+            console.error(error.message)
+        } 
+    }
+    
+    const navigateToPage = (pageNumber, pagesize) => (
+        setPostStatus(
+            prevPostStatus => ({
+                ...prevPostStatus,
+                currentPage :pageNumber,
+                postsPerPage:pagesize
+            })
+        )
+    )
 
     const showModal = () => {
         setIsMapModalVisible(true);
     };
 
-    useEffect(()=>{
-        setTimeout(() => (setUserLoading(false)),500)        
-    },[])
-
+    useEffect(() => (setTimeout(() => (setUserLoading(false)), 500)),[])
+    useEffect(()=>{                
+        requestPostData()
+    }, [postStatus.currentPage, postStatus.postsPerPage])
+    
     return (
         <Content style={{ "padding": "30px 0" }}>            
             <Row justify="center" gutter={[0, 24]}>
                 {md && <Col span={1.5} order={1}/>}
                 <Col span={md ? 14 : 20} order={md ? 2 : 2}>
-                    <Row gutter={[0, 24]}>
-                        <Col span={24}>
-                            Posts & Comments
-                        </Col>
+                    <Row gutter={[0, 24]}>                        
                         <Col span={24}>
                             <Album userId={user.id}/>
+                        </Col>
+                        <Col span={24}>
+                            <Collapse>
+                                <Panel header={`Show ${user.username}'s Posts`} key="1">
+                                    {
+                                        posts.length === 0 ?
+                                        <Blank/>:
+                                        <>
+                                            <Card bordered={false}>
+                                                {
+                                                    posts.map(
+                                                        post => (
+                                                            <>
+                                                                <Post postId={post} key={post} showComment={false} />
+                                                                <Divider/>
+                                                            </>
+                                                        )
+                                                    )
+                                                }
+                                            </Card>
+                                            <Row
+                                                style={{
+                                                    "justifyContent": "center",
+                                                    "alignItems": "center",
+                                                    "padding": "30px 0"
+                                                }}
+                                            >
+                                                <Pagination
+                                                    showSizeChanger={md ? true : false}
+                                                    showQuickJumper={md ? true : false}
+                                                    pageSize={postStatus.postsPerPage}
+                                                    pageSizeOptions={[2, 4, 8]}
+                                                    defaultCurrent={postStatus.currentPage}
+                                                    total={postStatus.postCount}
+                                                    onChange={navigateToPage}
+                                                />
+                                            </Row>                                                                     
+                                        </>
+                                    }
+                                </Panel>
+                            </Collapse>
                         </Col>
                     </Row>                    
                 </Col>                

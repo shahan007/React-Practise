@@ -62,7 +62,7 @@ const Home = () => {
             <Loader/>
         )
     }
-    console.log("Dipe")
+        
     return (
         <Content style={{"padding":"30px 0"}}>            
             <Content>

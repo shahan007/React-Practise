@@ -1,13 +1,16 @@
-import { Collapse, Comment, Tooltip, List,Pagination,Row} from "antd"
+import { Collapse, Comment, Tooltip, List,Pagination,Row,Grid} from "antd"
 import Loader from "../Loader/Loader";
 import moment from "moment"
 const { Panel } = Collapse;
+const { useBreakpoint } = Grid
 
 const Comments = (props) => {
     
+    const { md } = useBreakpoint()
+
     return (
         <Collapse                 
-            defaultActiveKey={['1']} 
+            defaultActiveKey={props.showComment && ['1']} 
             style={{
                 "marginBottom": "20px"
             }}
@@ -23,9 +26,8 @@ const Comments = (props) => {
                             itemLayout="horizontal"
                             dataSource={props.comments}
                             renderItem={comment => (
-                                <li>
-                                    <Comment
-                                        // actions={item.actions} -- disabled this
+                                <li key={comment.id}>
+                                    <Comment                                        
                                         author={
                                             <Tooltip title={comment.email}>
                                                 <span>{comment.email.split("@")[0]}</span>
@@ -53,8 +55,8 @@ const Comments = (props) => {
                             }}
                         >
                             <Pagination
-                                showSizeChanger
-                                showQuickJumper
+                                showSizeChanger={md ? true : false}
+                                showQuickJumper={md ? true : false}
                                 pageSize={props.commentPageStatus.commentsPerPage}
                                 pageSizeOptions={[2, 4, 8]}
                                 defaultCurrent={props.commentPageStatus.currentPage}

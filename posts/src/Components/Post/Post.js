@@ -7,9 +7,19 @@ import { Card, Row, Layout, Col,Grid} from "antd";
 const { useBreakpoint } = Grid;
 const { Content } = Layout
 
-const Post = ()=>{
-
-    const {id:postId} = useParams()
+const Post = (props)=>{
+    
+    let postId;
+    let showComment= true;
+    let atUser=false;
+    let params = useParams();
+    if (props.postId){
+        postId = props.postId
+        showComment = props.showCollapse
+        atUser=true
+    } else {
+        postId = params.id
+    }
     const [loading, setLoading] = useState(true)
     const [post,setPost] = useState({})
     const [comments, setComments] = useState([])
@@ -81,7 +91,7 @@ const Post = ()=>{
 
     useEffect(()=>{
         requestComments()
-    },[post,commentPageStatus])
+    },[commentPageStatus.currentPage,commentPageStatus.commentsPerPage])
 
     if (loading) {
         return (
@@ -92,8 +102,8 @@ const Post = ()=>{
     return (        
         <Content style={{ "padding": "30px 0" }}>                
             <Row>               
-                <Col span={ md ? 6 : 3}/>
-                <Col span={md ? 12 : 18}>
+                {!atUser && <Col span={ md ? 6 : 3}/>}
+                <Col span={!atUser ? (md ? 12 : 18) : (24)}>
                     {
                         !Object.keys(post).length ?
                         <Blank />
@@ -112,7 +122,7 @@ const Post = ()=>{
                         </Card>
                     }     
                 </Col>   
-                <Col span={md ? 6 : 3} />                         
+                {!atUser && <Col span={md ? 6 : 3} />}                
             </Row>
             <Row                 
                 style={{                     
@@ -124,9 +134,10 @@ const Post = ()=>{
                     Object.keys(post).length > 0
                     &&
                     <>
-                        <Col span={md ? 6 : 3} />        
-                        <Col span={md ? 12 : 18} >
+                        {!atUser && <Col span={md ? 6 : 3} />}     
+                        <Col span={!atUser ? (md ? 12 : 18) : (24)}>
                             <Comments 
+                                showComment={showComment}
                                 comments={comments}
                                 navigateToPage={navigateToPage}
                                 commentCount={commentCount}
@@ -134,12 +145,13 @@ const Post = ()=>{
                                 commentLoading={commentLoading}
                             />
                         </Col>
-                        <Col span={md ? 6 : 3} />                   
+                        {!atUser && <Col span={md ? 6 : 3} />}
                     </>
                 }                
             </Row>        
         </Content>               
     )
 }
+
 
 export default Post;
